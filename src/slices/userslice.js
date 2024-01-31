@@ -76,7 +76,7 @@ const userslice = createSlice({
         }
       },
       reducer(state,action){
-        state.user=state.user.filter((e)=>e.id!==action.payload.id);
+        state.user=state.user.filter((e)=>e.id!==action.payload.id)
       }
     }
   },
