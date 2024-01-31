@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import store from "../store";
 import { selectedandsplit } from "../slices/userslice";
 
-const Slipbill = () => {
-  const [bill, setbill] = useState(0);
+const Slipbill = ({bill,setbill}) => {
   const [me, setme] = useState(0);
   const [paid, setpaid] = useState(null);
   const dispatch = useDispatch();
