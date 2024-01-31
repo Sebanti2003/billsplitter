@@ -55,7 +55,7 @@ const Friendlist = ({ setsplit }) => {
                   ""
                 )}
               </div>
-              <div>
+              <div className="flex items-center gap-1 ">
                 <MdOutlineClose />
                 <button
                   className="p-2 px-3 font-bold bg-orange-500 rounded-lg flex justify-center items-center "
