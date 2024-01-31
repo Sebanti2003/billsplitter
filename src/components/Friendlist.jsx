@@ -45,7 +45,7 @@ const Friendlist = ({ setsplit ,bill}) => {
                 )}
                 {e.paid === true ? (
                   <div className="mt-[-5px] text-red-500">
-                    You owe {e.name} ${bill-e.money}
+                    You owe {e.name} ${e.money}
                   </div>
                 ) : e.paid === false ? (
                   <div className="mt-[-5px] text-green-500">
