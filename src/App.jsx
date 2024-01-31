@@ -14,7 +14,7 @@ function App() {
   const user=useSelector(e=>e.user);
   const dispatch=useDispatch();
   // dispatch(reset())
-  console.log(user);
+  // console.log(user);
 
   return (
     <>
