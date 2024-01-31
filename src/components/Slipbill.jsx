@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import store from "../store";
 import { selectedandsplit } from "../slices/userslice";
 
-const Slipbill = ({bill,setbill}) => {
+const Slipbill = () => {
+  const [bill,setbill]=useState(0);
   const [me, setme] = useState(0);
   const [paid, setpaid] = useState(null);
   const dispatch = useDispatch();
@@ -11,8 +12,8 @@ const Slipbill = ({bill,setbill}) => {
   const selected = useSelector((store) => store.selected);
   const obj = user.find((e) => e.name === selected.selID);
   console.log(obj);
-  const splitting = (name, paid, money) => {
-    dispatch(selectedandsplit(name, paid, money));
+  const splitting = (name, paid, money,bill) => {
+    dispatch(selectedandsplit(name, paid, money,bill));
   };
 
   return (
@@ -82,7 +83,7 @@ const Slipbill = ({bill,setbill}) => {
         </select>
       </div>
       <button
-        onClick={() => splitting(obj.name, paid, bill - me)}
+        onClick={() => splitting(obj.name, paid, bill - me,bill)}
         className="p-2 px-3 font-bold bg-orange-500 rounded-lg flex justify-center items-center "
       >
         Split Bill

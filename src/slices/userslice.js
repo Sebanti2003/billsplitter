@@ -7,6 +7,7 @@ const userslice = createSlice({
         name: "Clark",
         id: 0,
         money: 90,
+        total:0,
         paid: false,
         imageURL:
           "https://images.unsplash.com/photo-1602233158242-3ba0ac4d2167?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -25,9 +26,9 @@ const userslice = createSlice({
           }];
     },
     selectedandsplit: {
-        prepare(namee, paid, money) {
+        prepare(namee, paid, money,total) {
           return {
-            payload: { namee, paid, money },
+            payload: { namee, paid, money ,total},
           };
         },
         reducer(state, action) {
@@ -41,7 +42,9 @@ const userslice = createSlice({
               ...state.user[personIndex],
               money: action.payload.money,
               paid: action.payload.paid,
+              total:action.payload.total
             };
+            console.log(action.payload.total);
   
             state.user = [
               ...state.user.slice(0, personIndex),
@@ -63,6 +66,7 @@ const userslice = createSlice({
             name: action.payload.name,
             imageURL: action.payload.image,
             id: Math.random() * 10,
+            total:0,
             money: 0,
             paid: Math.random(),
           },

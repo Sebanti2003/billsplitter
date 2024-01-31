@@ -6,7 +6,7 @@ import { change, openclose } from "../slices/selectslice";
 import { deletee } from "../slices/userslice";
 import { MdOutlineClose } from "react-icons/md";
 
-const Friendlist = ({ setsplit ,bill}) => {
+const Friendlist = ({setsplit}) => {
   const dispatch = useDispatch();
   const [open, setopen] = useState(false);
   const { user } = useSelector((store) => store.user);
@@ -45,7 +45,10 @@ const Friendlist = ({ setsplit ,bill}) => {
                 )}
                 {e.paid === true ? (
                   <div className="mt-[-5px] text-red-500">
-                    You owe {e.name} ${e.money}
+                    <div>
+                      {" "}
+                      You owe {e.name} ${e.total - e.money}
+                    </div>
                   </div>
                 ) : e.paid === false ? (
                   <div className="mt-[-5px] text-green-500">
@@ -56,10 +59,10 @@ const Friendlist = ({ setsplit ,bill}) => {
                 )}
               </div>
               <div className="flex items-center gap-1 ">
-                <div onClick={()=>dispatch(deletee(e.id))}>
-                <MdOutlineClose/>
+                <div onClick={() => dispatch(deletee(e.id))}>
+                  <MdOutlineClose />
                 </div>
-                
+
                 <button
                   className="p-2 px-3 font-bold bg-orange-500 rounded-lg flex justify-center items-center "
                   onClick={() => {
