@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import store from "../store";
 import Addfriend from "./Addfriend";
-import { change,openclose } from "../slices/selectslice";
+import { change, openclose } from "../slices/selectslice";
+import { deletee } from "../slices/userslice";
+import { MdOutlineClose } from "react-icons/md";
+
 const Friendlist = ({ setsplit }) => {
   const dispatch = useDispatch();
-  const [open,setopen]=useState(false);
-  const {user} = useSelector((store) => store.user);
-  const selected=useSelector(store=>store.selected);
+  const [open, setopen] = useState(false);
+  const { user } = useSelector((store) => store.user);
+  const selected = useSelector((store) => store.selected);
   // console.log(selected);
   // console.log(user);
 
@@ -35,7 +38,11 @@ const Friendlist = ({ setsplit }) => {
                 )}
               </div>
               <div className="flex-col justify-center  w-[70%] ">
-                {e.name?<div className="name font-semibold">{e.name}</div>:<div className="name font-semibold">Random Person</div>}
+                {e.name ? (
+                  <div className="name font-semibold">{e.name}</div>
+                ) : (
+                  <div className="name font-semibold">Random Person</div>
+                )}
                 {e.paid === true ? (
                   <div className="mt-[-5px] text-red-500">
                     You owe {e.name} ${e.money}
@@ -48,16 +55,19 @@ const Friendlist = ({ setsplit }) => {
                   ""
                 )}
               </div>
-              <button
-                className="p-2 px-3 font-bold bg-orange-500 rounded-lg flex justify-center items-center "
-                onClick={() =>{
-                  setsplit((e) => !e);
-                  dispatch(change(e.name));
-                  setopen(e=>!e);
-                }}
-              >
-                {open?"close":"Select"}
-              </button>
+              <div>
+                <MdOutlineClose />
+                <button
+                  className="p-2 px-3 font-bold bg-orange-500 rounded-lg flex justify-center items-center "
+                  onClick={() => {
+                    setsplit((e) => !e);
+                    dispatch(change(e.name));
+                    setopen((e) => !e);
+                  }}
+                >
+                  {open ? "close" : "Select"}
+                </button>
+              </div>
             </div>
           );
         })}

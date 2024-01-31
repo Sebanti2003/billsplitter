@@ -69,7 +69,17 @@ const userslice = createSlice({
         ];
       },
     },
+    deletee:{
+      prepare(id){
+        return{
+          payload:{id}
+        }
+      },
+      reducer(state,action){
+        state.user=state.user.filter((e)=>e.id!==action.payload.id);
+      }
+    }
   },
 });
 export default userslice.reducer;
-export const { add ,selectedandsplit,reset} = userslice.actions;
+export const { add ,selectedandsplit,reset,deletee} = userslice.actions;
