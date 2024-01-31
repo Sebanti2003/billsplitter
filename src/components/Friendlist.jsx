@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import store from "../store";
 import Addfriend from "./Addfriend";
 import { change, openclose } from "../slices/selectslice";
-// import { deletee } from "../slices/userslice";
+import { deletee } from "../slices/userslice";
 import { MdOutlineClose } from "react-icons/md";
 
 const Friendlist = ({ setsplit }) => {
@@ -56,7 +56,10 @@ const Friendlist = ({ setsplit }) => {
                 )}
               </div>
               <div className="flex items-center gap-1 ">
-                <MdOutlineClose  />
+                <div onClick={()=>dispatch(deletee(e.id))}>
+                <MdOutlineClose/>
+                </div>
+                
                 <button
                   className="p-2 px-3 font-bold bg-orange-500 rounded-lg flex justify-center items-center "
                   onClick={() => {

@@ -18,7 +18,9 @@ function App() {
 
   return (
     <>
-    <div className="font-bold text-center text-3xl font-mono m-5 text-orange-700">Bill-Splitter</div>
+    <div className="flex flex-col justify-center items-center gap-5">
+    <div className="font-bold text-center text-3xl font-mono mt-24  text-orange-700">Bill-Splitter</div>
+    <div className="w-[60%] mx-auto text-center text-slate-500"><span className="font-semibold italic font-mono mt-36">Use it for trial image: </span>https://images.unsplash.com/photo-1602233158242-3ba0ac4d2167?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D</div>
       <div className="w-screen min-h-screen gap-1 flex max-lg:flex-col-reverse justify-center  items-center ">
         <div className="flex flex-col justify-center items-center max-lg:w-[90%] w-[30%]">
           <Friendlist setsplit={setsplit} />
@@ -32,6 +34,8 @@ function App() {
         </div>
         {showsplit ?<div className="max-lg:w-full w-[25%]  flex justify-center"> <Slipbill setsplit={setsplit}/></div> : ""}
       </div>
+    </div>
+    
     </>
   );
 }
