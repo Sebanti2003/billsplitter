@@ -18,6 +18,7 @@ function App() {
 
   return (
     <>
+    <div className="font-bold text-center">Bill-Slitter</div>
       <div className="w-screen min-h-screen gap-1 flex max-lg:flex-col-reverse justify-center  items-center ">
         <div className="flex flex-col justify-center items-center max-lg:w-[90%] w-[30%]">
           <Friendlist setsplit={setsplit} />
